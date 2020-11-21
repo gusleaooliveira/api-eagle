@@ -12,7 +12,7 @@ if(process.env.USUARIO == '' || process.env.USUARIO == undefined){
     usuario = 'gustavo';
 }
 if(process.env.SENHA == '' || process.env.SENHA == undefined){
-    senha = '';
+    senha = 'oliveira18';
 }
 
 console.log(`${process.env.USUARIO || usuario}:${process.env.SENHA || senha}`);
