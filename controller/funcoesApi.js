@@ -33,7 +33,6 @@ exports.apagar = (req, Colecao, res) => {
 }
 
 let mensagem = (res, erro, valores) => {
-    console.log(`#-> Ocorreu: ${erro}|${valores}`);
-    if(erro) res.send(erro)
-    res.send(valores)
+    if(erro) res.send(erro);
+    res.send(valores);
 }

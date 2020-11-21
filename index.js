@@ -5,12 +5,24 @@ const { json, urlencoded } = require('body-parser'),
       mongoose = require('mongoose'),
       cors = require('cors');
 
+
+let usuario = '', senha = '';
+
+if(process.env.USUARIO == '' || process.env.USUARIO == undefined){
+    usuario = 'gustavo';
+}
+if(process.env.SENHA == '' || process.env.SENHA == undefined){
+    senha = '';
+}
+
+console.log(`${process.env.USUARIO || usuario}:${process.env.SENHA || senha}`);
+
 let app = express(),
     Log = require('./model/log/index'),
     rotaLog = require('./routes/log/index'),
     rotaAplicativo = require('./routes/aplicativo/index'),
     rotaCategoria = require('./routes/categoria/index'),
-    urlDB = `mongodb+srv://${process.env.USUARIO}:${process.env.SENHA}@cluster0.sl4fb.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority`,
+    urlDB = `mongodb+srv://${process.env.USUARIO || usuario}:${process.env.SENHA || senha}@cluster0.sl4fb.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority`,
     urlBase = `http://localhost:${process.env.PORT}/api/`;
 
 mongoose.connect(urlDB, {
