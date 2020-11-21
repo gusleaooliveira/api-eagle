@@ -83,6 +83,4 @@ app.use('/api/log/', rotaLog);
 app.use('/api/categoria/', rotaCategoria);
 app.use('/api/aplicativo/', rotaAplicativo);
 
-app.listen(process.env.PORT, () => {
-    console.log(urlBase);
-});
+app.listen(process.env.PORT || 5000);
