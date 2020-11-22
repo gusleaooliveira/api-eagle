@@ -20,7 +20,7 @@ exports.listar = (Colecao, res) => {
 
 exports.listarUm = (req, Colecao, res) => {
     let filtro = {_id: req.params.id }
-    Colecao(filtro, (erro, valores) => {
+    Colecao.findById(filtro, (erro, valores) => {
         mensagem(res, erro, valores);
     });
 }

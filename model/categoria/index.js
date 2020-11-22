@@ -3,7 +3,8 @@ mongoose.Promise = global.Promise;
 
 
 let Categoria =  new mongoose.Schema({
-    categoria: String
+    categoria: String,
+    icone: String
 }, {
     versionKey: false
 });

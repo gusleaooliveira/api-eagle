@@ -1,0 +1,11 @@
+include ../cabecalho.pug
+include ../menu.pug
+
+form(onsubmit="return false")
+    label(for="id") Categoria:
+    select(id="id")
+        each item in valores
+            option(value=item.id) #{item.categoria}
+    input(type="submit", onclick="apagarCategoria()", value="Apagar")
+
+include ../rodape.pug

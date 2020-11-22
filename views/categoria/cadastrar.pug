@@ -1,0 +1,11 @@
+include ../cabecalho.pug
+include ../menu.pug
+
+form(onsubmit="return false")
+    label(for="categoria") Categoria: 
+    input(type="text", id="categoria", placeholder="Digite a categoria")
+    label(for="icone") Icone:
+    input(type="text", id="icone", placeholder="Digite o nome do icone")
+    input(type="submit", value="enviar", onclick="enviarCategoria()")
+
+include ../rodape.pug

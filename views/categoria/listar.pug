@@ -1,0 +1,14 @@
+include ../cabecalho.pug
+include ../menu.pug
+
+table
+    tr
+        th Categoria
+        th Icone
+    each item in valores
+        tr
+            td 
+                a(href="/view/categoria/listar/"+item.id) #{item.categoria}
+            td #{item.icone}
+
+include ../rodape.pug

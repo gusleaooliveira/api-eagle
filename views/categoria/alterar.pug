@@ -1,0 +1,15 @@
+include ../cabecalho.pug
+include ../menu.pug
+
+form(onsubmit="return false")
+    label(for="id") Categoria antiga:
+    select(id="id")
+        each item in valores
+            option(value=item.id) #{item.categoria}
+    label(for="categoria") Categoria nova:
+        input(type="text", id="categoria", placeholder="Digite o novo valor")
+    label(for="icone") Icone:
+    input(type="text", id="icone", placeholder="Digite o nome do icone")
+    input(type="submit", onclick="alterarCategoria()", value="Alterar")
+
+include ../rodape.pug

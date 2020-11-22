@@ -11,6 +11,7 @@ let app = express(),
     rotaLog = require('./routes/log/index'),
     rotaAplicativo = require('./routes/aplicativo/index'),
     rotaCategoria = require('./routes/categoria/index'),
+    rotaCategoriaView = require('./routes/categoria/view'),
     urlDB = `mongodb+srv://${process.env.USUARIO}:${process.env.SENHA}@cluster0.sl4fb.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority`,
     urlBase = `http://localhost:${process.env.PORT}/api/`;
 
@@ -55,7 +56,6 @@ mongoose.Promise = global.Promise;
 
 app.set('view engine', 'pug');
 
-
 app.use(json());
 app.use(urlencoded());
 app.use(cors({ origin: urlBase, credentials: true }));
@@ -83,5 +83,6 @@ app.use('/static/', express.static(__dirname+'/public'));
 app.use('/api/log/', rotaLog);
 app.use('/api/categoria/', rotaCategoria);
 app.use('/api/aplicativo/', rotaAplicativo);
+app.use('/view/categoria/', rotaCategoriaView);
 
 app.listen(process.env.PORT || 5000);
